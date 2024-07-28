@@ -12,4 +12,7 @@ How to Use the App
 
 This setup enables efficient communication through both personal and group interactions, leveraging the robust capabilities of ChatEngine.
 
+# Project Video
+The project video shows how new users are added and how to initiate personal as well as group chats.
 
+[Video Link](https://drive.google.com/file/d/1UmjPiX9vv3ep0JwkXqirxffFQGvShpzy/view?usp=sharing)
