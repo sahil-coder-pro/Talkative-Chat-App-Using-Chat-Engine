@@ -1,7 +1,10 @@
 import React from 'react'
 import axios from 'axios';
+import { useState } from 'react';
 
 function AuthPage(props) {
+
+    const [loading, setLoading] = useState(false) ;
 
     const onSubmit = (e) => {
         console.log(e.target[0]) ;
@@ -10,10 +13,12 @@ function AuthPage(props) {
         // props.onAuth({ username: value, secret: value });
         console.log(value) ;
         
+        setLoading(true) ;
         axios
-        .post("http://localhost:3000/authenticate", { username: value })
+        .post(`${import.meta.env.VITE_CHAT_APP_BACKEND_URI}/authenticate`, { username: value })
         .then((response) => props.onAuth({ ...response.data, secret: value }))
-        .catch((e) => console.log("Auth Error", e));
+        .catch((e) => console.log("Auth Error", e))
+        // .finally(() => setLoading(false)) ;
     };
 
   return (
@@ -35,7 +40,7 @@ function AuthPage(props) {
           className="text-lg py-3 px-4 rounded-lg mt-3 text-white bg-orange-600 hover:bg-orange-700" type="submit"
         //   onClick={(e) => onSubmit(e)}
           >
-            Enter
+            {loading? "Loading..." : "Enter"}
           </button>
         </div>
       </form>
